@@ -36,6 +36,14 @@ registerSchema.pre('save',function (next){
     });
 });
 
-const Register = mongoose.model('mern-register',registerSchema);
+const saveMessageSchema = new Schema({
+    username:{type:String,required:true},
+    message:{type:String,required:true},
+},{
+    timestamps:true
+});
 
-module.exports = Register;
+const Register = mongoose.model('mern-register',registerSchema);
+const Messages = mongoose.model('mern-messages',saveMessageSchema);
+
+module.exports = {Register,Messages};

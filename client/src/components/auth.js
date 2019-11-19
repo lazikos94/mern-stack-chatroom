@@ -4,12 +4,12 @@ const Auth = {
     login(cb){
       this.authenticated = true;
       this.isLoading=false;
-      setTimeout(cb,200);
+      cb();
     },
     logout(cb) {
       this.authenticated = false;
       this.isLoading=false;
-      setTimeout(cb,200);
+      cb();
     },
 }
   

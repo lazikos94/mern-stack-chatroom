@@ -1,4 +1,4 @@
-const Register = require('../models/mongoose_model')
+const {Register,Messages} = require('../models/mongoose_model')
 
 getAllUsers= async (req,res)=>{
     try{
@@ -19,7 +19,58 @@ getAllUsers= async (req,res)=>{
         })
     }
 }
+getMessages = async(req,res)=>{
+    try{
+        let data = await Messages.find({},(err)=>{
+            if (err){
+                return res.status(400).json({
+                    success:false,
+                    error:err
+                })
+            }
+        })
+        return res.send(data);
+    }catch(error){
+        console.log(error);
+        return res.status(400).json({
+            error:error,
+            message:'Could not find'
+        })
+    }
+}
+saveMessages= async (req,res)=>{
+    const body = req.body
+    if(!body){
+        return res.status(400).json({
+            success:false,
+            error:'You must provide data'
+        })
+    }
+    const data = new Messages(body);
+    if(!data){
+        return res.status(400).json({
+            success:false,
+            error: err
+        })
+    }
+    try{
+        const newData = await data.save();
 
+        return res.status(201).json({
+            data: newData,
+            success:true,
+            message:'User added'
+        })
+    }
+    catch(error){
+        console.log(error);
+        return  res.status(400).json({
+                error,
+                message:'Data not added'
+        })
+    }
+
+}
 /*updateData = async (req,res)=>{
     const body = req.body;
     if(!body){
@@ -109,4 +160,4 @@ getUserData = async(req,res)=>{
     }
 }
 */
-module.exports = {getAllUsers}
+module.exports = {getAllUsers,saveMessages,getMessages}

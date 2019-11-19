@@ -1,4 +1,4 @@
-const Register = require('../models/mongoose_model')
+const {Register,Messages} = require('../models/mongoose_model')
 const bcrypt = require('bcrypt');
 
 registerUser= async (req,res)=>{

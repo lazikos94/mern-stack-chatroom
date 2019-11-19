@@ -54,6 +54,20 @@ export default class Chat extends Component{
                 })
                 this.setStateData(res.data);
             })
+            axios.get('http://localhost:5000/get_messages').then(res=>{
+                let data = res.data;
+                data.forEach((item)=>{
+                    let message={
+                        username:item.username,
+                        message:item.message
+                    }
+                    console.log(message)
+                    this.setState({
+                        messages:[...this.state.messages,message]
+                    })
+                })
+
+            })
         }
     }
 
@@ -80,15 +94,16 @@ export default class Chat extends Component{
     onSubmit(e){
         e.preventDefault();
         if(this.state.message!==''){
-        let messages={
-            username:this.state.loggedin_user,
-            message:this.state.message
+            let messages={
+                username:this.state.loggedin_user,
+                message:this.state.message
+            }
+            axios.post(`http://localhost:5000/post_message/`,messages).then(res=>console.log(res.data))
+            this.socket.emit('send_message',messages)
+            this.setState({
+                message:''
+            })
         }
-        this.socket.emit('send_message',messages)
-        this.setState({
-            message:''
-        })}
-
     }
     onChangeMessage(e){
         this.setState({
@@ -116,6 +131,9 @@ export default class Chat extends Component{
         axios.get(`http://localhost:5000/get/${username}`).then(res=>{
             this.setStateData(res.data);
         })
+    }
+    scrollToBottom = () => {
+        this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
     }
     render(){
         return(

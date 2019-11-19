@@ -5,7 +5,7 @@ var BodyParser = require('body-parser');
 require('dotenv').config();
 
 const db = require('./db/db');
-const routes = require('./routes/login.register-routes');
+const routes = require('./routes/routes');
 const io = require('./socket.io/socket.io')
 const app = express();
 const port = process.env.PORT;
