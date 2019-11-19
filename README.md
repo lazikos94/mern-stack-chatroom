@@ -1,7 +1,7 @@
 # MERN STACK CHATROOM
 This is a chatroom created with [React.js](https://reactjs.org/).<br/>
 
-The server is a [Node.js](https://nodejs.org/en/) server that was created the [Express](https://expressjs.com/) framework and [Mongoose](https://mongoosejs.com/) as database.<br/>
+The server is a [Node.js](https://nodejs.org/en/) server that was created using the [Express](https://expressjs.com/) framework and [Mongoose](https://mongoosejs.com/) as database.<br/>
 
 The client was create via the [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) using [React.js](https://reactjs.org/) and CSS (Cascading Style Sheets) and some [React Bootstrap](https://react-bootstrap.github.io/).<br/>
 
