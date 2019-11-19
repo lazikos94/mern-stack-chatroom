@@ -1,0 +1,41 @@
+#others_message{
+    float: left;
+    width: 50%;
+    height: fit-content;
+    border-radius: 25px;
+    display: block;
+    margin-left:5px;
+    padding: 1px;
+    background-color: #3F99FF;
+    margin-top:10px;
+    clear: both;
+}
+#your_message{
+    float: right;
+    width: 50%;
+    height: fit-content;
+    border-radius: 25px;
+    display: block;
+    margin-right:5px;
+    padding: 1px;
+    background-color: #3F99FF;
+    margin-top:10px;
+    clear: both;
+}
+.message_sender{
+    color: black;
+    margin-left: 25px;
+    font-weight: bold;
+}
+.message_content{
+    color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+.messages{
+    display: block;
+    position: relative;
+    overflow: auto;
+    height: 87%;
+}

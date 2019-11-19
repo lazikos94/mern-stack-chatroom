@@ -1,0 +1,25 @@
+.user_container{
+    position: relative;
+    width: 100%;
+    height: 7%;
+}
+.user_container:hover{
+    background-color: #b9b9b9;
+}
+.user_name{
+    position: relative;
+    width: 100%;
+    font-style: normal;
+    font-size: 15px;
+    margin-left: 20px;
+    color:black ;
+    font-weight: bold;
+}
+.user_job{
+    position: relative;
+    width: 100%;
+    font-style: normal;
+    font-size: 15px;
+    margin-left: 20px;
+    color:black ;
+}
