@@ -10,6 +10,7 @@ import Profile from "./profile"
 import auth from '../auth'
 import MessagesNavbar from "./navbar_chat"
 import io from "socket.io-client";
+import {animateScroll} from "react-scroll"
 
 
 
@@ -69,8 +70,11 @@ export default class Chat extends Component{
 
             })
         }
+        this.scrollToBottom();
     }
-
+    componentDidUpdate(){
+        this.scrollToBottom();
+    }
     componentWillUnmount() {
         auth.logout(()=>{
             this.socket.emit('component_unmounted',this.props.match.params.username)
@@ -133,7 +137,9 @@ export default class Chat extends Component{
         })
     }
     scrollToBottom = () => {
-        this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
+        animateScroll.scrollToBottom({
+            containerId: "Messages"
+          });
     }
     render(){
         return(

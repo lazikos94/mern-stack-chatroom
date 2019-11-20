@@ -1,9 +1,7 @@
 import React from 'react'
 import '../../css/message.css'
-import { runInThisContext } from 'vm'
 
 const Messages= (props)=>{
-
     const{messages,loggedin_user}=props;
     const message_list = messages.map((info,index)=>{
         if (loggedin_user===info.username){
@@ -26,9 +24,9 @@ const Messages= (props)=>{
     })
 
     return(
-        <div className="messages">
-            {message_list}
-        </div>
+            <div id= "Messages" className="messages">
+                {message_list}
+            </div>
     )
 }
 export default Messages;
