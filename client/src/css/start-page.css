@@ -5,3 +5,16 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.exaple-enter{
+    opacity: 0.01;
+}
+.example-enter.exaple-enter-active{
+    opacity: 1;
+}
+.example-leave{
+    opacity: 1;
+}
+.example-leave.exaple-leave-active{
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
